@@ -11,3 +11,11 @@ app
   .listen(port, () => {
     console.log(`Application à l'écoute sur le port ${port}`)
   })
+
+app.get('/', (req, res, next) => {
+  res.json({status: 200, msg: 'Ok'})
+})
+
+const userRoutes = require('./routes/userRoutes')
+
+userRoutes(app);
