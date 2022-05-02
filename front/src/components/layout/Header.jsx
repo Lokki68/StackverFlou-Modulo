@@ -9,11 +9,6 @@ export default function Header(props) {
   const {isLogged, infos} = useSelector(state => state.user)
   const dispatch = useDispatch()
 
-  useEffect(() => {
-    console.log(infos)
-  }, [isLogged])
-
-
   return (
     <Container>
       <LogoContainer>
