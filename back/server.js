@@ -15,9 +15,12 @@ app
     console.log(`Application à l'écoute sur le port ${port}`)
   })
 
-
+const authRoute = require('./routes/authRoute')
 const userRoutes = require('./routes/userRoutes')
 const topicRoutes = require('./routes/topicRoutes')
+const messageRoutes = require('./routes/messageRoutes')
 
+authRoute(app);
 userRoutes(app);
-topicRoutes(app)
+topicRoutes(app);
+messageRoutes(app);
