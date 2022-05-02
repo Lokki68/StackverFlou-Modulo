@@ -2,7 +2,6 @@ const userCtrl = require ('../controllers/userCtrl')
 const withAuth = require('../withAuth')
 
 module.exports = app => {
-  const User = require('../models/user')
 
   app.get('/api/user/:id',withAuth , userCtrl.getOne)
 
