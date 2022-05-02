@@ -4,7 +4,7 @@ export default function Home(props) {
   return (
     <div>
      <h1>
-      Hello depuis home
+      Bienvenue !!!
      </h1>
     </div>
   );

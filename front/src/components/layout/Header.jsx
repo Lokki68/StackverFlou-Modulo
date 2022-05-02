@@ -87,6 +87,7 @@ const NavContainer = styled.nav`
     margin: 0 10px;
     padding: 10px 15px;
     border-radius: 999px;
+    background: #f1f1f1;
     color: #5c6269;
     transition: .2s linear;
     
