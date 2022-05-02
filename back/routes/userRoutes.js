@@ -9,5 +9,5 @@ module.exports = app => {
 
   app.post('/api/user/login', userCtrl.login)
 
-  app.put('/api/user/update/:id', userCtrl.update )
+  app.put('/api/user/update/:id', userCtrl.update)
 }
