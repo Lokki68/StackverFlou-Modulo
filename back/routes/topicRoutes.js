@@ -6,9 +6,9 @@ module.exports = app => {
 
   app.get('/api/topic/:id', topicCtrl.oneTopic)
 
-  app.post('/api/topic/save', topicCtrl.save)
+  app.post('/api/topic/save',withAuth , topicCtrl.save)
 
-  app.put('/api/topic/update/:id', topicCtrl.update)
+  app.put('/api/topic/update/:id',withAuth , topicCtrl.update)
 
-  app.delete('/api/topic/delete/:id', topicCtrl.delete)
+  app.delete('/api/topic/delete/:id',withAuth , topicCtrl.delete)
 }

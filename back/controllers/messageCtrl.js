@@ -38,7 +38,7 @@ module.exports.messageByTopic = async (req, res) => {
   const messages = await Message.find({topic_id});
 
   if(typeof messages.length !== 'number'){
-    res.json({status: 500, data: {msg: 'intenal server error', err: messages}})
+    res.json({status: 500, data: {msg: 'internal server error', err: messages}})
   }
 
   const completeMessages = await Promise.all(messages.map(async (message) => {
@@ -54,12 +54,12 @@ module.exports.messageByUser = async (req, res) => {
 
   const messages = await Message.find({user_id})
   if(typeof messages.length !== 'number'){
-    res.json({status: 500, data: {msg: 'intenal server error', err: messages}})
+    res.json({status: 500, data: {msg: 'internal server error', err: messages}})
   }
 
   const completeMessages = await Promise.all(messages.map(async (message) => {
-    const user = await User.find({_id: message.user_id})
-    return {...message.toObject(), nickName: user[0].nickName};
+    const topic = await Topic.find({_id: message.topic_id})
+    return {...message.toObject(), title: topic[0].nickName};
   }))
 
   res.json({status: 200, data: {msg: 'message by user', messages: completeMessages}})
