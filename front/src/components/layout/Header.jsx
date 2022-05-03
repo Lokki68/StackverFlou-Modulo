@@ -1,4 +1,4 @@
-import React, {Fragment, useEffect} from 'react';
+import React, {Fragment} from 'react';
 import styled from "styled-components";
 import {useDispatch, useSelector} from "react-redux";
 import {NavLink} from "react-router-dom";

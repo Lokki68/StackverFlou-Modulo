@@ -36,7 +36,7 @@ export default function Topic(props) {
                   <h4>Aucun message pour le moment</h4>
                 ) : (
                   messages.map(message => (
-                    <li>
+                    <li key={message._id} >
                       <p className='message-content'>{message.content}</p>
                       <p className='message-creation-date' >{dateParser(message.creationDate)}</p>
                     </li>
@@ -108,7 +108,7 @@ const TopicContent = styled.div`
 
 const MessageContainer = styled.div`
   width: 100%;
-  padding-top: 20px;
+  padding-top: 5px;
   
   h4{
     text-align: center;
