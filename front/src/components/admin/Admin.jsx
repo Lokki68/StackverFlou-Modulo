@@ -42,7 +42,7 @@ export default function Admin(props) {
                 <button
                   className='btn btn-modif'
                   onClick={() => {
-                    navigate('/admin/updateMessage')
+                    navigate(`/admin/updateMessage/${message._id}`)
                   }}
                 >Modifier
                 </button>
