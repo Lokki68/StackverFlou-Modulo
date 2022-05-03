@@ -4,7 +4,7 @@ import {useSelector} from "react-redux";
 import {useNavigate} from "react-router-dom";
 import {saveTopic} from "../../api/topic";
 
-export default function AddTopic(props) {
+export default function AddMessage(props) {
   const [title, setTilte] = useState('')
   const [description, setDescription] = useState('')
   const user = useSelector(state => state.user)
@@ -34,7 +34,7 @@ export default function AddTopic(props) {
         }}
       >
         <div>
-          <label>Ajouter un topic</label>
+          <label>Ajouter un message</label>
         </div>
         <div>
           <input
@@ -48,7 +48,7 @@ export default function AddTopic(props) {
           <input
             type="text"
             placeholder='Description'
-             value={description}
+            value={description}
             onInput={e => setDescription(e.target.value)}
           />
         </div>

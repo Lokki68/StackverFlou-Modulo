@@ -7,8 +7,6 @@ export default function Topics(props) {
 
   const [topics, setTopics] = useState([])
 
-  console.log(topics)
-
   useEffect(() => {
     getTopics()
       .then(res => setTopics(res.topics))
@@ -27,8 +25,10 @@ export default function Topics(props) {
           {
             topics.map(topic => (
                 <li key={topic._id}>
-                  <Link to={`/topic/${topic._id}`}>{topic.title}</Link>
+                  <h3>{topic.title}</h3>
                   <p>{topic.description}</p>
+                  <Link to={`/topic/${topic._id}`}>voir plus</Link>
+
                 </li>
               )
             )
@@ -92,6 +92,7 @@ const TopicContent = styled.div`
   }
   
   li{
+    position: relative;
     margin: 20px 0;
     padding: 15px 0 0 ;
     min-height: 50px;
@@ -99,13 +100,32 @@ const TopicContent = styled.div`
     border-radius: 4px;
     box-shadow: 0 9px 16px rgba(109, 91, 91, .1);
     
-    a{
-      text-decoration: none;
+    h3{
       font-size: 24px;
       font-family: "Roboto", sans-serif;
       font-weight: bold;
       padding: 5px 10px;
       color: #3a739c;
+    }
+    
+    a{
+      position: absolute;
+      top: 50%;
+      right: 0;
+      transform: translateY(-50%);
+      font-size: 12px;
+      text-decoration: none;
+      margin: 0 10px;
+      padding: 10px 15px;
+      border-radius: 999px;
+      background: #fff;
+      color: #5c6269;
+      transition: .2s linear;
+
+      &:hover {
+        background: #babfc4;
+        color: #fff;
+      }
     }
     
     p{

@@ -87,9 +87,14 @@ const NavContainer = styled.nav`
     transition: .2s linear;
     
     &:hover{
-      background: #babfc4;
+      background: #b3d3ea;
       color: #fff;
     }
+  }
+  
+  .active{
+    background: #b3d3ea;
+    color: #fff;
   }
 `;
 
