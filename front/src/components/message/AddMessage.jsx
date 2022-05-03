@@ -1,26 +1,26 @@
 import React, {useState} from 'react';
 import styled from "styled-components";
 import {useSelector} from "react-redux";
-import {useNavigate} from "react-router-dom";
-import {saveTopic} from "../../api/topic";
+import {useNavigate, useParams} from "react-router-dom";
+import {saveMessage} from "../../api/message";
 
 export default function AddMessage(props) {
-  const [title, setTilte] = useState('')
-  const [description, setDescription] = useState('')
+  const [content, setContent] = useState('')
+  const {topic_id} = useParams()
   const user = useSelector(state => state.user)
   const navigate = useNavigate()
 
   const onSubmitForm = () => {
     const data = {
-      title,
-      description,
-      user_id: user.infos._id
+      content,
+      user_id: user.infos._id,
+      topic_id
     }
 
-    saveTopic(data)
+      saveMessage(data)
       .then(res => {
         if(res.status === 200){
-          return navigate('/topics')
+          return navigate(`/topic/${topic_id}`)
         }
       })
   }
@@ -39,20 +39,11 @@ export default function AddMessage(props) {
         <div>
           <input
             type="text"
-            placeholder='Titre'
-            value={title}
-            onInput={e => setTilte(e.target.value)}
+            placeholder='Tapez votre message'
+            value={content}
+            onInput={e => setContent(e.target.value)}
           />
         </div>
-        <div>
-          <input
-            type="text"
-            placeholder='Description'
-            value={description}
-            onInput={e => setDescription(e.target.value)}
-          />
-        </div>
-
         <button type='submit' >Envoyer</button>
       </Formulaire>
     </Container>
